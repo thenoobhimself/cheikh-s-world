@@ -1,10 +1,26 @@
 {
     "buildCommand": "npm run build",
     "outputDirectory": "dist",
-    "rewrites": [
+    "routes": [
         {
-            "source": "/((?!icons/|intro/|creations/|assets/).*)",
-            "destination": "/index.html"
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/icons/(.*)",
+            "dest": "/icons/$1"
+        },
+        {
+            "src": "/intro/(.*)",
+            "dest": "/intro/$1"
+        },
+        {
+            "src": "/creations/(.*)",
+            "dest": "/creations/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }
