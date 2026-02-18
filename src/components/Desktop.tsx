@@ -22,8 +22,6 @@ import ChatGPTApp from '../apps/ChatGPTApp';
 const desktopApps: AppType[] = [
   'profile',
   'universe',
-  'projects',
-  'creations',
   'n2s',
   'graveyard',
   'dino',
