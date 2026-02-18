@@ -57,7 +57,7 @@ export default function N2SApp() {
               </button>
             </div>
 
-            <div className="bg-black p-1 border-t-2 border-l-2 border-gray-600 shadow-[inset_-1px_-1px_0_white]">
+            <div className="bg-black p-1 border-t-2 border-l-2 border-gray-600" style={{ boxShadow: 'inset -1px -1px 0 white' }}>
               <video
                 src={selectedVideo}
                 autoPlay
@@ -90,7 +90,7 @@ function N2SWorld({ onSelectVideo }: { onSelectVideo: (url: string) => void }) {
           preload="metadata"
           className="absolute inset-0 w-full h-full object-contain md:object-cover opacity-60 md:scale-105"
         >
-          <source src="/creations/Drop n2s.mp4#t=0.1" type="video/mp4" />
+          <source src="/creations/drop_n2s.mp4#t=0.1" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
 
@@ -144,14 +144,14 @@ function N2SWorld({ onSelectVideo }: { onSelectVideo: (url: string) => void }) {
               }}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
             >
-              <source src="/creations/Souvenir drop.mp4#t=0.1" type="video/mp4" />
+              <source src="/creations/souvenir_drop.mp4#t=0.1" type="video/mp4" />
             </video>
             <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
               <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-xs font-bold text-white/50 mb-2 block">DROP 002</span>
                 <h3 className="text-2xl font-bold mb-4">"SOUVENIR" COLLECTION</h3>
                 <button
-                  onClick={() => onSelectVideo('/creations/Souvenir drop.mp4')}
+                  onClick={() => onSelectVideo('/creations/souvenir_drop.mp4')}
                   className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
                 >
                   EXPLORE ARCHIVE <ChevronRight size={14} />
@@ -174,14 +174,14 @@ function N2SWorld({ onSelectVideo }: { onSelectVideo: (url: string) => void }) {
               }}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
             >
-              <source src="/creations/trailer souvenir.mp4#t=0.1" type="video/mp4" />
+              <source src="/creations/trailer_souvenir.mp4#t=0.1" type="video/mp4" />
             </video>
             <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
               <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-xs font-bold text-white/50 mb-2 block">DROP 002-B</span>
                 <h3 className="text-2xl font-bold mb-4 uppercase">SOUVENIR TRAILER</h3>
                 <button
-                  onClick={() => onSelectVideo('/creations/trailer souvenir.mp4')}
+                  onClick={() => onSelectVideo('/creations/trailer_souvenir.mp4')}
                   className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
                 >
                   WATCH TRAILER <Play size={14} />
@@ -204,14 +204,14 @@ function N2SWorld({ onSelectVideo }: { onSelectVideo: (url: string) => void }) {
               }}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
             >
-              <source src="/creations/trailer 2 n2s.mp4#t=2.0" type="video/mp4" />
+              <source src="/creations/trailer_2_n2s.mp4#t=2.0" type="video/mp4" />
             </video>
             <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
               <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-xs font-bold text-white/50 mb-2 block">DROP 003</span>
                 <h3 className="text-2xl font-bold mb-4 uppercase">teaser thniti</h3>
                 <button
-                  onClick={() => onSelectVideo('/creations/trailer 2 n2s.mp4')}
+                  onClick={() => onSelectVideo('/creations/trailer_2_n2s.mp4')}
                   className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
                 >
                   WATCH TRAILER <Play size={14} />
@@ -427,7 +427,7 @@ function N2SPaint() {
             ))}
           </div>
           {/* Tool Options Box */}
-          <div className="mt-1 h-32 w-full bg-[#c0c0c0] border-t border-l border-gray-800 shadow-[1px_1px_0_white] p-2">
+          <div className="mt-1 h-32 w-full bg-[#c0c0c0] border-t border-l border-gray-800 p-2" style={{ boxShadow: '1px 1px 0 white' }}>
             <div className="w-full h-full border border-gray-600 border-dashed opacity-20 flex flex-col items-center justify-center gap-2">
               <div className="w-8 h-[2px] bg-black"></div>
               <div className="w-8 h-[4px] bg-black"></div>
@@ -437,7 +437,7 @@ function N2SPaint() {
         </div>
 
         {/* Workspace Area */}
-        <div className="flex-1 h-full bg-[#808080] p-1 overflow-hidden relative border-t-2 border-l-2 border-gray-600 shadow-[inset_{-2px_-2px_0_white}]">
+        <div className="flex-1 h-full bg-[#808080] p-1 overflow-hidden relative border-t-2 border-l-2 border-gray-600" style={{ boxShadow: 'inset -2px -2px 0 white' }}>
           <div className="w-full h-full bg-white relative">
             {/* N2S Watermark Logo */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25 overflow-hidden">
@@ -458,7 +458,7 @@ function N2SPaint() {
       {/* Color Palette (Bottom) */}
       <div className="flex gap-2 p-1 pt-1 bg-[#c0c0c0] border-t border-gray-400 items-start shrink-0">
         {/* Selected Color Display (Classic Stacked) */}
-        <div className="relative w-8 h-8 shrink-0 border-t border-l border-gray-800 shadow-[1px_1px_0_white]">
+        <div className="relative w-8 h-8 shrink-0 border-t border-l border-gray-800" style={{ boxShadow: '1px 1px 0 white' }}>
           <div className="absolute top-0.5 left-0.5 w-[22px] h-[22px] bg-white border border-gray-400 z-0"></div>
           <div
             className="absolute bottom-1 right-1 w-[18px] h-[18px] border border-black z-10"

@@ -107,7 +107,7 @@ export function Desktop({ onShutdown }: { onShutdown: () => void }) {
       ))}
 
       <div
-        className="retro-taskbar absolute bottom-0 left-0 right-0 h-[28px] flex items-center px-1 border-t-2 border-white bg-[#c0c0c0] shadow-[0_-2px_0_#808080 inset]"
+        className="retro-taskbar absolute bottom-0 left-0 right-0 h-[28px] flex items-center px-1 border-t-2 border-white bg-[#c0c0c0] shadow-[inset_0_-2px_0_#808080]"
         style={{ zIndex: 1000 }}
       >
         <button
