@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, Pause, Shuffle, Repeat, Heart, MoreHorizontal, ArrowDownCircle, Share, Plus, ChevronLeft, MonitorSpeaker } from 'lucide-react';
+import { Play, Pause, Shuffle, MoreHorizontal, ArrowDownCircle, Share, ChevronLeft, MonitorSpeaker } from 'lucide-react';
 import { clsx } from '../utils/retro-utils';
 import { spotifyPlaylist } from '../data/spotifyPlaylist';
 

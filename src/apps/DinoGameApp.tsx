@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Trophy, Play, RefreshCw, Gamepad2 } from 'lucide-react';
-import { clsx } from '../utils/retro-utils';
+import { RefreshCw, Gamepad2 } from 'lucide-react';
 
 export default function DinoGameApp() {
   const [score, setScore] = useState(0);
@@ -11,8 +10,6 @@ export default function DinoGameApp() {
   const [timeLeft, setTimeLeft] = useState(30);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>();
-  const lastTimeRef = useRef<number>();
 
   const generateTarget = useCallback(() => {
     if (containerRef.current) {

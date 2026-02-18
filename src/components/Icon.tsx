@@ -12,10 +12,6 @@ interface IconProps {
 export function Icon({ appType, icon, label, selected, onSelect }: IconProps) {
   const { openWindow } = useWindowManager();
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (onSelect) onSelect();
-    e.stopPropagation();
-  };
 
   return (
     <div

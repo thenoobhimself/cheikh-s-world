@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HardDrive, Cpu, Monitor, Zap, Settings, Disc, Server } from 'lucide-react';
+import { HardDrive, Cpu, Monitor, Settings, Disc, Server } from 'lucide-react';
 import { clsx } from '../utils/retro-utils';
 
 export default function ComputerApp() {

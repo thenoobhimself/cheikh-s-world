@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Folder, FileCode, Play, Terminal, Database, Globe, ChevronRight, ChevronDown, Monitor, Cpu } from 'lucide-react';
+import { Folder, Play, Terminal, Globe, ChevronRight, ChevronDown, Monitor, Cpu } from 'lucide-react';
 import { clsx } from '../utils/retro-utils';
 
 interface Project {
