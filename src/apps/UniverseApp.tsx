@@ -107,7 +107,7 @@ export default function UniverseApp() {
                   <div className="w-40 h-40 md:w-56 md:h-56 relative bg-black border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] overflow-hidden">
                     <video
                       className="w-full h-full object-cover opacity-80"
-                      src="/icons/kling_20260216_Image_to_Video_Act_like_a_5987_0.mp4"
+                      src="/icons/universe_background.mp4"
                       autoPlay loop muted playsInline
                     />
                   </div>

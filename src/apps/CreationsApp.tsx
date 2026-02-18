@@ -6,21 +6,21 @@ export default function CreationsApp() {
   const [currentFolder, setCurrentFolder] = useState<string | null>(null);
 
   const creations = [
-    { type: 'video', title: 'Amsterdam vlog.mp4', url: '/creations/Amsterdam vlog.mp4', category: 'Vlog', date: '2023-05-15', folder: null },
-    { type: 'video', title: 'Drop n2s.mp4', url: '/creations/Drop n2s.mp4', category: 'N2S Brand', date: '2023-06-10', folder: null },
-    { type: 'video', title: 'Souvenir drop.mp4', url: '/creations/Souvenir drop.mp4', category: 'Event', date: '2023-08-20', folder: null },
+    { type: 'video', title: 'Amsterdam vlog.mp4', url: '/creations/amsterdam_vlog.mp4', category: 'Vlog', date: '2023-05-15', folder: null },
+    { type: 'video', title: 'Drop n2s.mp4', url: '/creations/drop_n2s.mp4', category: 'N2S Brand', date: '2023-06-10', folder: null },
+    { type: 'video', title: 'Souvenir drop.mp4', url: '/creations/souvenir_drop.mp4', category: 'Event', date: '2023-08-20', folder: null },
     { type: 'video', title: 'grenoble.mp4', url: '/creations/grenoble.mp4', category: 'Travel', date: '2023-09-05', folder: null },
-    { type: 'video', title: 'trailer 2 n2s.mp4', url: '/creations/trailer 2 n2s.mp4', category: 'Teaser', date: '2023-10-12', folder: null },
+    { type: 'video', title: 'trailer 2 n2s.mp4', url: '/creations/trailer_2_n2s.mp4', category: 'Teaser', date: '2023-10-12', folder: null },
     { type: 'image', title: 'artwork.jpg', url: '/creations/artwork.jpg', category: 'Digital Art', date: '2024-02-16', folder: null },
 
     // kuluwak folder images
-    { type: 'image', title: 'Affiche add insta.png', url: '/creations/kuluwak/Affiche add insta.png', category: 'Kuluwak', date: '2024-01-10', folder: 'kuluwak' },
-    { type: 'image', title: 'affiche plat familialle.png', url: '/creations/kuluwak/affiche plat familialle.png', category: 'Kuluwak', date: '2024-01-11', folder: 'kuluwak' },
-    { type: 'image', title: 'affiche pour traiteur.png', url: '/creations/kuluwak/affiche pour traiteur.png', category: 'Kuluwak', date: '2024-01-12', folder: 'kuluwak' },
-    { type: 'image', title: 'affiche recrutement chef.png', url: '/creations/kuluwak/affiche recrutement chef.png', category: 'Kuluwak', date: '2024-01-13', folder: 'kuluwak' },
-    { type: 'image', title: 'affiche yessmine.png', url: '/creations/kuluwak/affiche yessmine.png', category: 'Kuluwak', date: '2024-01-14', folder: 'kuluwak' },
+    { type: 'image', title: 'Affiche add insta.png', url: '/creations/kuluwak/affiche_add_insta.png', category: 'Kuluwak', date: '2024-01-10', folder: 'kuluwak' },
+    { type: 'image', title: 'affiche plat familialle.png', url: '/creations/kuluwak/affiche_plat_familialle.png', category: 'Kuluwak', date: '2024-01-11', folder: 'kuluwak' },
+    { type: 'image', title: 'affiche pour traiteur.png', url: '/creations/kuluwak/affiche_pour_traiteur.png', category: 'Kuluwak', date: '2024-01-12', folder: 'kuluwak' },
+    { type: 'image', title: 'affiche recrutement chef.png', url: '/creations/kuluwak/affiche_recrutement_chef.png', category: 'Kuluwak', date: '2024-01-13', folder: 'kuluwak' },
+    { type: 'image', title: 'affiche yessmine.png', url: '/creations/kuluwak/affiche_yessmine.png', category: 'Kuluwak', date: '2024-01-14', folder: 'kuluwak' },
     { type: 'image', title: 'multiposstt.png', url: '/creations/kuluwak/multiposstt.png', category: 'Kuluwak', date: '2024-01-15', folder: 'kuluwak' },
-    { type: 'image', title: 'reseravation post.png', url: '/creations/kuluwak/reseravation post.png', category: 'Kuluwak', date: '2024-01-16', folder: 'kuluwak' },
+    { type: 'image', title: 'reseravation post.png', url: '/creations/kuluwak/reservation_post.png', category: 'Kuluwak', date: '2024-01-16', folder: 'kuluwak' },
     { type: 'image', title: 'reservation.png', url: '/creations/kuluwak/reservation.png', category: 'Kuluwak', date: '2024-01-17', folder: 'kuluwak' },
   ];
 
