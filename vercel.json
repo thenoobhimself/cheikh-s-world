@@ -1,7 +1,9 @@
 {
+    "cleanUrls": true,
+    "trailingSlash": false,
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/((?!assets/|intro/|creations/|icons/|.*\\.(?:js|css|png|jpg|jpeg|gif|svg|ico|mp4|webm|ogg|mp3|wav|woff|woff2|ttf|eot|json|csv)$).*)",
             "destination": "/index.html"
         }
     ]
