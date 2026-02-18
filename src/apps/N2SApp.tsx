@@ -1,0 +1,497 @@
+import { useState, useRef, useEffect } from 'react';
+import { Palette, Globe, ChevronRight, Play, Info, Instagram, Twitter, MessageSquare, X } from 'lucide-react';
+import { clsx } from '../utils/retro-utils';
+
+type View = 'world' | 'paint';
+
+export default function N2SApp() {
+  const [currentView, setCurrentView] = useState<View>('world');
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  return (
+    <div className="h-full flex flex-col bg-[#c0c0c0] font-sans select-none overflow-hidden relative">
+      {/* App Tab Bar */}
+      <div className="flex bg-[#c0c0c0] p-1 gap-1 border-b border-gray-400">
+        <button
+          onClick={() => setCurrentView('world')}
+          className={clsx(
+            "px-4 py-1 flex items-center gap-2 text-xs font-bold transition-all",
+            currentView === 'world' ? "retro-button pressed bg-white" : "retro-button"
+          )}
+        >
+          <Globe size={14} /> N2S World
+        </button>
+        <button
+          onClick={() => setCurrentView('paint')}
+          className={clsx(
+            "px-4 py-1 flex items-center gap-2 text-xs font-bold transition-all",
+            currentView === 'paint' ? "retro-button pressed bg-white" : "retro-button"
+          )}
+        >
+          <Palette size={14} /> Paint
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-hidden relative">
+        {currentView === 'world' ? (
+          <N2SWorld onSelectVideo={setSelectedVideo} />
+        ) : (
+          <N2SPaint />
+        )}
+      </div>
+
+      {/* Video Popup Modal (Windows 95 Style) */}
+      {selectedVideo && (
+        <div className="absolute inset-0 z-[200] flex items-center justify-center p-4 bg-black/40 backdrop-blur-[1px]">
+          <div className="retro-window w-full max-w-4xl shadow-2xl">
+            <div className="retro-titlebar flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Play size={12} className="text-white" />
+                <span>Media Player - {selectedVideo.split('/').pop()}</span>
+              </div>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="retro-button p-0 w-5 h-5 flex items-center justify-center bg-[#c0c0c0]"
+              >
+                <X size={14} />
+              </button>
+            </div>
+
+            <div className="bg-black p-1 border-t-2 border-l-2 border-gray-600 shadow-[inset_-1px_-1px_0_white]">
+              <video
+                src={selectedVideo}
+                autoPlay
+                controls
+                className="w-full h-auto max-h-[70vh] object-contain"
+              />
+            </div>
+
+            <div className="retro-statusbar mt-0 flex justify-between px-2 text-[10px]">
+              <span>Ready</span>
+              <span className="font-mono italic">N2S Archive</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function N2SWorld({ onSelectVideo }: { onSelectVideo: (url: string) => void }) {
+  return (
+    <div className="h-full bg-black text-white overflow-y-auto overflow-x-hidden scroll-smooth relative">
+      {/* Hero Section */}
+      <section className="relative h-auto aspect-video md:h-[500px] md:aspect-auto flex items-center justify-center overflow-hidden border-b-4 border-white/20 bg-black">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-contain md:object-cover opacity-60 md:scale-105"
+        >
+          <source src="/creations/Drop n2s.mp4#t=0.1" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
+
+        <div className="relative z-10 text-center px-4">
+          <div className="inline-block px-3 py-1 bg-white text-black text-[10px] uppercase font-bold tracking-[0.3em] mb-4 animate-pulse">
+            New Drop Available
+          </div>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-2 italic">N2S</h1>
+          <p className="text-sm md:text-lg tracking-[0.5em] text-white/70 uppercase">Night to Sunday</p>
+        </div>
+      </section>
+
+      {/* Manifesto Section */}
+      <section className="px-8 py-16 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 underline decoration-white/20 underline-offset-8">
+              <Info size={24} className="text-white/40" /> THE MANIFESTO
+            </h2>
+            <p className="text-white/60 leading-relaxed text-lg italic">
+              "We live for the transition. The ephemeral moments between Friday's chaos and Sunday's silence. N2S isn't just about clothes; it's about the culture of the nocturnal seeker."
+            </p>
+          </div>
+          <div className="bg-white/5 p-6 border border-white/10 rounded-sm">
+            <div className="flex justify-between items-end mb-4">
+              <span className="text-4xl font-black opacity-10">01</span>
+              <span className="text-[10px] font-mono text-white/30">EST. 2023</span>
+            </div>
+            <p className="text-xs font-mono text-white/40 uppercase tracking-widest leading-loose">
+              Limited Edition / High Quality / Streetwise / Ethical / Raw / Authentic
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Drop Showcase */}
+      <section className="px-4 py-16 bg-gradient-to-b from-transparent to-white/5">
+        <h2 className="text-center text-4xl font-black mb-12 tracking-widest uppercase">Latest Archives</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1400px] mx-auto">
+          {/* Drop Item 1 */}
+          <div className="group relative overflow-hidden bg-white/5 border border-white/10 aspect-video md:aspect-auto md:h-[500px]">
+            <video
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onMouseOver={e => e.currentTarget.play()}
+              onMouseOut={e => {
+                e.currentTarget.pause();
+                e.currentTarget.currentTime = 0;
+              }}
+              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
+            >
+              <source src="/creations/Souvenir drop.mp4#t=0.1" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
+              <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-xs font-bold text-white/50 mb-2 block">DROP 002</span>
+                <h3 className="text-2xl font-bold mb-4">"SOUVENIR" COLLECTION</h3>
+                <button
+                  onClick={() => onSelectVideo('/creations/Souvenir drop.mp4')}
+                  className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
+                >
+                  EXPLORE ARCHIVE <ChevronRight size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Drop Item 3 (New) */}
+          <div className="group relative overflow-hidden bg-white/5 border border-white/10 aspect-video md:aspect-auto md:h-[500px]">
+            <video
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onMouseOver={e => e.currentTarget.play()}
+              onMouseOut={e => {
+                e.currentTarget.pause();
+                e.currentTarget.currentTime = 0;
+              }}
+              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
+            >
+              <source src="/creations/trailer souvenir.mp4#t=0.1" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
+              <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-xs font-bold text-white/50 mb-2 block">DROP 002-B</span>
+                <h3 className="text-2xl font-bold mb-4 uppercase">SOUVENIR TRAILER</h3>
+                <button
+                  onClick={() => onSelectVideo('/creations/trailer souvenir.mp4')}
+                  className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
+                >
+                  WATCH TRAILER <Play size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Drop Item 2 */}
+          <div className="group relative overflow-hidden bg-white/5 border border-white/10 aspect-video md:aspect-auto md:h-[500px]">
+            <video
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onMouseOver={e => e.currentTarget.play()}
+              onMouseOut={e => {
+                e.currentTarget.pause();
+                e.currentTarget.currentTime = 0;
+              }}
+              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
+            >
+              <source src="/creations/trailer 2 n2s.mp4#t=2.0" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black via-transparent to-transparent">
+              <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-xs font-bold text-white/50 mb-2 block">DROP 003</span>
+                <h3 className="text-2xl font-bold mb-4 uppercase">teaser thniti</h3>
+                <button
+                  onClick={() => onSelectVideo('/creations/trailer 2 n2s.mp4')}
+                  className="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white border border-white transition-colors flex items-center gap-2"
+                >
+                  WATCH TRAILER <Play size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer / Socials */}
+      <footer className="py-20 border-t border-white/10 flex flex-col items-center gap-8 bg-black">
+        <div className="flex gap-12">
+          <Instagram size={28} className="text-white/40 hover:text-white transition-colors cursor-pointer" />
+          <Twitter size={28} className="text-white/40 hover:text-white transition-colors cursor-pointer" />
+          <MessageSquare size={28} className="text-white/40 hover:text-white transition-colors cursor-pointer" />
+        </div>
+        <p className="text-white/20 text-[10px] font-mono tracking-[0.5em] uppercase">© 2024 N2S WORLD - ALL RIGHTS RESERVED - KEEP SEEKING</p>
+      </footer>
+    </div>
+  );
+}
+
+function N2SPaint() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [color, setColor] = useState('#000000');
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [tool, setTool] = useState<string>('pencil');
+
+  // MS Paint Colors
+  const colors = [
+    '#000000', '#808080', '#800000', '#808000', '#008000', '#008080', '#000080', '#800080', '#808040', '#004040', '#0080FF', '#004080', '#4000FF', '#804000',
+    '#FFFFFF', '#C0C0C0', '#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#FF00FF', '#FFFF80', '#00FF80', '#80FFFF', '#8080FF', '#FF0080', '#FF8040'
+  ];
+
+  const tools = [
+    {
+      id: 'select-free', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M8 1L10 6H15L11 9L12 14L8 11L4 14L5 9L1 6H6L8 1Z" stroke="black" strokeWidth="1" strokeDasharray="1 1" />
+        </svg>
+      )
+    },
+    {
+      id: 'select-rect', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <rect x="2" y="2" width="12" height="12" stroke="black" strokeWidth="1" strokeDasharray="1 1" />
+        </svg>
+      )
+    },
+    {
+      id: 'eraser', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <rect x="4" y="6" width="8" height="6" fill="white" stroke="black" />
+          <path d="M4 6L12 6L10 4L6 4L4 6Z" fill="#ffef94" stroke="black" />
+        </svg>
+      )
+    },
+    {
+      id: 'fill', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M12 2L8 6L10 8L14 4L12 2Z" fill="black" />
+          <path d="M4 8L8 12L12 8L8 4L4 8Z" fill="#808080" stroke="black" />
+          <path d="M4 8L2 10V14H6L8 12L4 8Z" fill="#c0c0c0" stroke="black" />
+        </svg>
+      )
+    },
+    {
+      id: 'pick', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M12 2L14 4L6 12L4 12V10L12 2Z" fill="white" stroke="black" />
+          <path d="M4 12L2 14" stroke="black" strokeWidth="2" />
+          <rect x="10" y="4" width="2" height="2" fill="gray" />
+        </svg>
+      )
+    },
+    {
+      id: 'zoom', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <circle cx="7" cy="7" r="5" stroke="black" strokeWidth="1" />
+          <path d="M11 11L14 14" stroke="black" strokeWidth="2" />
+        </svg>
+      )
+    },
+    {
+      id: 'pencil', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M12 2L14 4L6 12L2 14L4 10L12 2Z" fill="#ccc" stroke="black" />
+          <path d="M2 14L4 12" stroke="black" strokeWidth="2" />
+        </svg>
+      )
+    },
+    {
+      id: 'brush', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M4 12C4 10 6 4 10 4C14 4 14 10 14 12" stroke="black" fill="none" />
+          <rect x="8" y="8" width="4" height="6" fill="#8b4513" stroke="black" />
+        </svg>
+      )
+    },
+    {
+      id: 'spray', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <rect x="6" y="2" width="4" height="4" fill="black" stroke="black" />
+          <rect x="5" y="6" width="6" height="8" fill="#c0c0c0" stroke="black" />
+          <circle cx="8" cy="8" r="0.5" fill="black" />
+          <circle cx="6.5" cy="9.5" r="0.5" fill="black" />
+          <circle cx="9.5" cy="9.5" r="0.5" fill="black" />
+        </svg>
+      )
+    },
+    { id: 'text', icon: <span className="text-base font-serif font-black">A</span> },
+    { id: 'line', icon: <div className="w-[12px] h-[1px] bg-black rotate-[-45deg]"></div> },
+    {
+      id: 'curve', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M2 12C2 12 4 4 8 8C12 12 14 4 14 4" stroke="black" strokeWidth="1" fill="none" />
+        </svg>
+      )
+    },
+    { id: 'rect', icon: <div className="w-3 h-3 border border-black"></div> },
+    {
+      id: 'poly', icon: (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="pixel-art scale-[1.4]">
+          <path d="M3 8L8 3L13 6L11 13L5 12L3 8Z" stroke="black" strokeWidth="1" fill="none" />
+        </svg>
+      )
+    },
+    { id: 'circle', icon: <div className="w-3 h-3 border border-black rounded-full"></div> },
+    { id: 'round-rect', icon: <div className="w-3 h-3 border border-black rounded-[2px]"></div> },
+  ];
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Set canvas size to container size to avoid scrolling
+    const container = canvas.parentElement;
+    if (container) {
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+    }
+  }, []);
+
+  const startDrawing = (e: React.MouseEvent) => {
+    setIsDrawing(true);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.strokeStyle = tool === 'eraser' ? 'white' : color;
+    ctx.lineWidth = tool === 'brush' ? 8 : tool === 'eraser' ? 20 : 2;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+  };
+
+  const draw = (e: React.MouseEvent) => {
+    if (!isDrawing) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  };
+
+  const stopDrawing = () => {
+    setIsDrawing(false);
+  };
+
+  return (
+    <div className="h-full flex flex-col bg-[#c0c0c0] p-1 font-sans text-xs overflow-hidden">
+      {/* Menu Bar */}
+      <div className="flex gap-4 px-2 py-0.5 border-b border-gray-400 shrink-0">
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>F</u>ile</button>
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>E</u>dit</button>
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>V</u>iew</button>
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>I</u>mage</button>
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>O</u>ptions</button>
+        <button className="hover:bg-blue-800 hover:text-white px-2"><u>H</u>elp</button>
+      </div>
+
+      {/* Main Workspace Area (Toolbar + Canvas) */}
+      <div className="flex-1 flex gap-1 items-stretch min-h-0 mt-1">
+        {/* Toolbar (Double Column) */}
+        <div className="flex flex-col gap-1 p-1 bg-[#c0c0c0] w-[56px] shrink-0 border-r border-gray-400">
+          <div className="grid grid-cols-2 gap-[1px]">
+            {tools.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTool(t.id)}
+                className={clsx(
+                  "w-[25px] h-[25px] flex items-center justify-center overflow-hidden",
+                  tool === t.id ? "retro-button pressed active" : "retro-button"
+                )}
+              >
+                {t.icon}
+              </button>
+            ))}
+          </div>
+          {/* Tool Options Box */}
+          <div className="mt-1 h-32 w-full bg-[#c0c0c0] border-t border-l border-gray-800 shadow-[1px_1px_0_white] p-2">
+            <div className="w-full h-full border border-gray-600 border-dashed opacity-20 flex flex-col items-center justify-center gap-2">
+              <div className="w-8 h-[2px] bg-black"></div>
+              <div className="w-8 h-[4px] bg-black"></div>
+              <div className="w-8 h-[6px] bg-black"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Workspace Area */}
+        <div className="flex-1 h-full bg-[#808080] p-1 overflow-hidden relative border-t-2 border-l-2 border-gray-600 shadow-[inset_{-2px_-2px_0_white}]">
+          <div className="w-full h-full bg-white relative">
+            {/* N2S Watermark Logo */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25 overflow-hidden">
+              <img src="/icons/n2s.png" alt="N2S Logo" className="w-64 md:w-96 h-auto object-contain pixel-art" />
+            </div>
+            <canvas
+              ref={canvasRef}
+              onMouseDown={startDrawing}
+              onMouseMove={draw}
+              onMouseUp={stopDrawing}
+              onMouseLeave={stopDrawing}
+              className="cursor-crosshair block relative z-10 bg-transparent w-full h-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Color Palette (Bottom) */}
+      <div className="flex gap-2 p-1 pt-1 bg-[#c0c0c0] border-t border-gray-400 items-start shrink-0">
+        {/* Selected Color Display (Classic Stacked) */}
+        <div className="relative w-8 h-8 shrink-0 border-t border-l border-gray-800 shadow-[1px_1px_0_white]">
+          <div className="absolute top-0.5 left-0.5 w-[22px] h-[22px] bg-white border border-gray-400 z-0"></div>
+          <div
+            className="absolute bottom-1 right-1 w-[18px] h-[18px] border border-black z-10"
+            style={{ backgroundColor: color }}
+          ></div>
+        </div>
+
+        {/* Color Grid (2 Rows) */}
+        <div className="flex-1 grid grid-cols-[repeat(14,minmax(0,1fr))] grid-rows-2 gap-[1px] bg-gray-500 p-[1px] border-t border-l border-gray-800 border-r border-b border-white max-w-[224px]">
+          {colors.map((c, i) => (
+            <button
+              key={i}
+              onClick={() => setColor(c)}
+              className="w-[15px] h-[15px] border border-white shadow-[1px_1px_0_black] active:pressed"
+              style={{ backgroundColor: c }}
+              title={c}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Status Bar */}
+      <div className="retro-statusbar mt-1 flex gap-1 h-5 shrink-0 overflow-hidden">
+        <div className="flex-1 retro-sunken px-2 truncate leading-4 font-mono">For Help, click Help Topics on the Help Menu.</div>
+        <div className="w-24 retro-sunken px-2 flex items-center justify-center leading-4">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="pixel-art mr-1">
+            <path d="M2 2H14V14H2V2Z" stroke="black" strokeDasharray="1 1" />
+          </svg>
+        </div>
+        <div className="w-28 retro-sunken px-2 flex items-center justify-start leading-4 font-mono">
+          <span className="opacity-50 mr-1">XY:</span> 124, 382
+        </div>
+      </div>
+    </div>
+  );
+}

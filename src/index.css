@@ -1,0 +1,58 @@
+@import "./styles/retro-design-tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-system);
+    background-color: var(--retro-desktop-teal);
+    color: var(--window-content-text);
+    -webkit-font-smoothing: none;
+    overflow: hidden;
+    /* Desktop should handle scrolling if needed */
+}
+
+/* Custom scrollbar for the entire app */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+    background: var(--window-chrome-face);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--retro-gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--window-chrome-face);
+    border-top: 2px solid var(--window-chrome-light);
+    border-left: 2px solid var(--window-chrome-light);
+    border-right: 2px solid var(--window-chrome-dark-shadow);
+    border-bottom: 2px solid var(--window-chrome-dark-shadow);
+}
+
+::-webkit-scrollbar-button {
+    background: var(--window-chrome-face);
+    border-top: 2px solid var(--window-chrome-light);
+    border-left: 2px solid var(--window-chrome-light);
+    border-right: 2px solid var(--window-chrome-dark-shadow);
+    border-bottom: 2px solid var(--window-chrome-dark-shadow);
+    width: 16px;
+    height: 16px;
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}

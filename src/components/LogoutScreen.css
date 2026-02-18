@@ -1,0 +1,41 @@
+/* =============================================
+   LOGOUT SCREEN — Reversed video exit
+   ============================================= */
+
+.logout-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: #000;
+    overflow: hidden;
+}
+
+.logout-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Black overlay — fades in on exit */
+.logout-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0s;
+    z-index: 5;
+}
+
+.logout-screen--exit .logout-overlay {
+    opacity: 1;
+    transition: opacity 0.9s ease;
+}
+
+.logout-screen--exit .logout-video {
+    transform: scale(0.92);
+    transition: transform 0.9s ease;
+}

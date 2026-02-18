@@ -1,0 +1,369 @@
+/* ============================================
+   CHEIKH'S WORLD — RETRO OS DESIGN TOKENS
+   Authentic 90s/2000s Operating System Aesthetics
+   ============================================ */
+
+:root {
+  /* ========== RETRO COLOR PALETTE ========== */
+
+  /* Classic OS Grays */
+  --retro-gray-50: #FFFFFF;
+  --retro-gray-100: #DFDFDF;
+  --retro-gray-200: #C0C0C0;
+  /* Classic Windows Gray */
+  --retro-gray-300: #A0A0A0;
+  --retro-gray-400: #808080;
+  --retro-gray-500: #606060;
+  --retro-gray-600: #404040;
+  --retro-gray-700: #303030;
+  --retro-gray-800: #202020;
+  --retro-gray-900: #000000;
+
+  /* Classic OS Blues */
+  --retro-blue-dark: #000080;
+  /* Navy Blue */
+  --retro-blue-medium: #0000AA;
+  --retro-blue-light: #0080FF;
+  --retro-blue-title: #000084;
+  /* Title Bar Blue */
+  --retro-blue-active: #6699CC;
+
+  /* System Colors */
+  --retro-red: #CC0000;
+  --retro-yellow: #FFFF00;
+  --retro-green: #00CC00;
+  --retro-cyan: #00FFFF;
+  --retro-magenta: #FF00FF;
+
+  /* Desktop Colors */
+  --retro-desktop-teal: #008080;
+  --retro-desktop-green: #3A6EA5;
+  --retro-desktop-purple: #663399;
+
+  /* ========== WINDOW CHROME COLORS ========== */
+
+  --window-chrome-face: #C0C0C0;
+  --window-chrome-light: #FFFFFF;
+  --window-chrome-highlight: #DFDFDF;
+  --window-chrome-shadow: #808080;
+  --window-chrome-dark-shadow: #000000;
+
+  --window-content-bg: #FFFFFF;
+  --window-content-text: #000000;
+
+  /* Title Bar */
+  --titlebar-active-start: #0054E3;
+  --titlebar-active-end: #0A246A;
+  --titlebar-inactive-start: #808080;
+  --titlebar-inactive-end: #505050;
+  --titlebar-text: #FFFFFF;
+
+  /* ========== BORDERS & EFFECTS ========== */
+
+  /* 3D Beveled Borders (Raised) */
+  --border-raised: 2px solid var(--window-chrome-light);
+  --border-raised-outer:
+    inset 1px 1px 0 var(--window-chrome-light),
+    inset -1px -1px 0 var(--window-chrome-dark-shadow);
+
+  /* 3D Beveled Borders (Sunken) */
+  --border-sunken: 2px solid var(--window-chrome-shadow);
+  --border-sunken-outer:
+    inset -1px -1px 0 var(--window-chrome-light),
+    inset 1px 1px 0 var(--window-chrome-dark-shadow);
+
+  /* Window Border */
+  --border-window: 2px solid var(--window-chrome-face);
+
+  /* ========== SHADOWS ========== */
+
+  /* Classic Drop Shadow (no blur) */
+  --shadow-window: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-button: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-text: 1px 1px 0 rgba(0, 0, 0, 0.5);
+
+  /* Modern fallback for depth */
+  --shadow-modern: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* ========== TYPOGRAPHY ========== */
+
+  /* System Fonts Stack */
+  --font-system: 'MS Sans Serif', 'Chicago', 'Geneva', 'Verdana', 'Tahoma', sans-serif;
+  --font-mono: 'Courier New', 'Courier', 'Monaco', monospace;
+  --font-terminal: 'Consolas', 'Lucida Console', monospace;
+
+  /* Font Sizes (Pixel Perfect) */
+  --font-size-xs: 9px;
+  --font-size-sm: 11px;
+  --font-size-base: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+
+  /* ========== SPACING ========== */
+
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+
+  /* ========== LAYOUT ========== */
+
+  --titlebar-height: 20px;
+  --menubar-height: 22px;
+  --toolbar-height: 32px;
+  --statusbar-height: 20px;
+  --taskbar-height: 28px;
+  --scrollbar-width: 16px;
+
+  --icon-size-sm: 16px;
+  --icon-size-md: 32px;
+  --icon-size-lg: 48px;
+  --icon-size-xl: 64px;
+
+  /* ========== ANIMATIONS ========== */
+
+  --transition-instant: 0ms;
+  --transition-fast: 100ms;
+  --transition-normal: 200ms;
+  --transition-slow: 400ms;
+
+  /* Retro uses linear easing, not smooth curves */
+  --ease-linear: linear;
+  --ease-stepped: steps(4);
+
+  /* ========== Z-INDEX LAYERS ========== */
+
+  --z-desktop-bg: 0;
+  --z-desktop-icons: 10;
+  --z-window-base: 100;
+  --z-taskbar: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+}
+
+/* ========== RETRO UTILITIES ========== */
+
+/* Classic Raised Button/Panel */
+.retro-raised {
+  background: var(--window-chrome-face);
+  border-top: 2px solid var(--window-chrome-light);
+  border-left: 2px solid var(--window-chrome-light);
+  border-right: 2px solid var(--window-chrome-dark-shadow);
+  border-bottom: 2px solid var(--window-chrome-dark-shadow);
+  box-shadow:
+    inset 1px 1px 0 var(--window-chrome-highlight),
+    inset -1px -1px 0 var(--window-chrome-shadow);
+}
+
+/* Classic Sunken Input/Panel */
+.retro-sunken {
+  background: var(--window-content-bg);
+  border-top: 2px solid var(--window-chrome-dark-shadow);
+  border-left: 2px solid var(--window-chrome-dark-shadow);
+  border-right: 2px solid var(--window-chrome-light);
+  border-bottom: 2px solid var(--window-chrome-light);
+  box-shadow:
+    inset -1px -1px 0 var(--window-chrome-highlight),
+    inset 1px 1px 0 var(--window-chrome-shadow);
+}
+
+/* Window Frame */
+.retro-window {
+  background: var(--window-chrome-face);
+  border: 2px solid var(--window-chrome-face);
+  box-shadow: var(--shadow-window);
+}
+
+/* Title Bar */
+.retro-titlebar {
+  background: linear-gradient(to right,
+      var(--titlebar-active-start),
+      var(--titlebar-active-end));
+  color: var(--titlebar-text);
+  height: var(--titlebar-height);
+  font-family: var(--font-system);
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  padding: 2px 4px;
+  cursor: move;
+  user-select: none;
+}
+
+/* Button 3D Effect */
+.retro-button {
+  background: var(--window-chrome-face);
+  border-top: 2px solid var(--window-chrome-light);
+  border-left: 2px solid var(--window-chrome-light);
+  border-right: 2px solid var(--window-chrome-dark-shadow);
+  border-bottom: 2px solid var(--window-chrome-dark-shadow);
+  padding: 4px 12px;
+  font-family: var(--font-system);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  user-select: none;
+  outline: 1px dotted transparent;
+}
+
+.retro-button:active,
+.retro-button.pressed {
+  border-top: 2px solid var(--window-chrome-dark-shadow);
+  border-left: 2px solid var(--window-chrome-dark-shadow);
+  border-right: 2px solid var(--window-chrome-light);
+  border-bottom: 2px solid var(--window-chrome-light);
+  padding: 5px 11px 3px 13px;
+  /* Offset for "pressed" look */
+}
+
+.retro-button:focus {
+  outline: 1px dotted var(--window-chrome-dark-shadow);
+  outline-offset: -4px;
+}
+
+/* Menu Bar */
+.retro-menubar {
+  background: var(--window-chrome-face);
+  height: var(--menubar-height);
+  border-bottom: 1px solid var(--window-chrome-shadow);
+  font-family: var(--font-system);
+  font-size: var(--font-size-sm);
+}
+
+/* Status Bar */
+.retro-statusbar {
+  background: var(--window-chrome-face);
+  height: var(--statusbar-height);
+  border-top: 2px solid var(--window-chrome-shadow);
+  font-family: var(--font-system);
+  font-size: var(--font-size-sm);
+  padding: 2px 4px;
+}
+
+/* Scrollbar Styling */
+.retro-scrollbar::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+  background: var(--window-chrome-face);
+}
+
+.retro-scrollbar::-webkit-scrollbar-track {
+  background: var(--retro-gray-200);
+}
+
+.retro-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--window-chrome-face);
+  border-top: 2px solid var(--window-chrome-light);
+  border-left: 2px solid var(--window-chrome-light);
+  border-right: 2px solid var(--window-chrome-dark-shadow);
+  border-bottom: 2px solid var(--window-chrome-dark-shadow);
+}
+
+.retro-scrollbar::-webkit-scrollbar-button {
+  background: var(--window-chrome-face);
+  border-top: 2px solid var(--window-chrome-light);
+  border-left: 2px solid var(--window-chrome-light);
+  border-right: 2px solid var(--window-chrome-dark-shadow);
+  border-bottom: 2px solid var(--window-chrome-dark-shadow);
+}
+
+/* Pixel Art Image Rendering */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Desktop Icon Selection */
+.desktop-icon-selected {
+  background: var(--retro-blue-dark);
+  color: var(--retro-gray-50);
+  outline: 1px dotted var(--retro-gray-50);
+}
+
+/* Text with Outline (Classic Desktop Icon Labels) */
+.text-outline {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color: #FFF;
+  font-weight: bold;
+}
+
+/* Panel Separator */
+.retro-separator {
+  height: 2px;
+  background: var(--window-chrome-shadow);
+  border-bottom: 1px solid var(--window-chrome-light);
+}
+
+/* Progress Bar */
+.retro-progress {
+  background: var(--window-content-bg);
+  border-top: 2px solid var(--window-chrome-dark-shadow);
+  border-left: 2px solid var(--window-chrome-dark-shadow);
+  border-right: 2px solid var(--window-chrome-light);
+  border-bottom: 2px solid var(--window-chrome-light);
+  height: 20px;
+  overflow: hidden;
+}
+
+.retro-progress-bar {
+  background: var(--retro-blue-dark);
+  height: 100%;
+  transition: width var(--transition-normal) var(--ease-linear);
+}
+
+/* Checkbox */
+.retro-checkbox {
+  width: 13px;
+  height: 13px;
+  background: var(--window-content-bg);
+  border-top: 2px solid var(--window-chrome-dark-shadow);
+  border-left: 2px solid var(--window-chrome-dark-shadow);
+  border-right: 2px solid var(--window-chrome-light);
+  border-bottom: 2px solid var(--window-chrome-light);
+  cursor: pointer;
+}
+
+/* Tab */
+.retro-tab {
+  background: var(--window-chrome-face);
+  border-top: 2px solid var(--window-chrome-light);
+  border-left: 2px solid var(--window-chrome-light);
+  border-right: 2px solid var(--window-chrome-dark-shadow);
+  padding: 4px 16px;
+  font-family: var(--font-system);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  user-select: none;
+  margin-right: 2px;
+}
+
+.retro-tab.active {
+  background: var(--window-content-bg);
+  border-bottom: 2px solid var(--window-content-bg);
+  position: relative;
+  top: 2px;
+}
+
+/* Disabled State */
+.retro-disabled {
+  color: var(--window-chrome-shadow);
+  text-shadow: 1px 1px 0 var(--window-chrome-light);
+  pointer-events: none;
+}

@@ -1,0 +1,8 @@
+/* App-level transition layer for logout overlay */
+.app-logout-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    transition: opacity 0.5s ease;
+    pointer-events: all;
+}
