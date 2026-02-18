@@ -48,9 +48,10 @@ export function BootScreen({ onEnter, onLogout }: BootScreenProps) {
         return () => clearInterval(interval);
     }, []);
 
-    // Focus input when menu appears
+    // Focus input when menu appears (Desktop only)
     useEffect(() => {
-        if (showMenu) {
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        if (showMenu && !isTouch) {
             setTimeout(() => inputRef.current?.focus(), 100);
         }
     }, [showMenu]);
@@ -89,8 +90,15 @@ export function BootScreen({ onEnter, onLogout }: BootScreenProps) {
         }
     };
 
+    const handleContainerClick = () => {
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        if (!isTouch) {
+            inputRef.current?.focus();
+        }
+    };
+
     return (
-        <div className={`boot-screen${exiting ? ' boot-screen--exit' : ''}`} onClick={() => inputRef.current?.focus()}>
+        <div className={`boot-screen${exiting ? ' boot-screen--exit' : ''}`} onClick={handleContainerClick}>
             <div className="boot-scanlines" />
             <div className="boot-vignette" />
 
@@ -138,7 +146,7 @@ export function BootScreen({ onEnter, onLogout }: BootScreenProps) {
                                 onChange={handleInputChange}
                                 onKeyDown={handleKeyDown}
                                 maxLength={1}
-                                autoFocus
+                                inputMode="none"
                             />
                         </div>
 
