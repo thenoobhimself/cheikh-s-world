@@ -3,7 +3,7 @@
     "outputDirectory": "dist",
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/((?!.*\\.(ico|png|jpg|jpeg|gif|svg|mp4|webm|ogg|mp3|wav|css|js|woff|woff2|ttf|eot|json)).*)",
             "destination": "/index.html"
         }
     ]
