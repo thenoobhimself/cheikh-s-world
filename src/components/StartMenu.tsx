@@ -36,7 +36,7 @@ export function StartMenu({ isOpen, onClose, onShutdown }: StartMenuProps) {
 
     return (
         <div
-            className="absolute bottom-[28px] left-0 bg-[#c0c0c0] border-t-2 border-l-2 border-white border-r-2 border-b-2 border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0_rgba(0,0,0,0.4)]"
+            className="absolute bottom-[28px] left-0 bg-[#c0c0c0] border-t-2 border-l-2 border-white border-r-2 border-b-2 border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0_rgba(0,0,0,0.4)] overflow-y-auto max-h-[calc(100dvh-40px)]"
             style={{ zIndex: 1001, width: '250px' }}
             onClick={(e) => e.stopPropagation()}
         >

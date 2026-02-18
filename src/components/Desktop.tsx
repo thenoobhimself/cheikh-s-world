@@ -22,6 +22,8 @@ import ChatGPTApp from '../apps/ChatGPTApp';
 const desktopApps: AppType[] = [
   'profile',
   'universe',
+  'projects',
+  'creations',
   'n2s',
   'graveyard',
   'dino',
@@ -69,7 +71,7 @@ export function Desktop({ onShutdown }: { onShutdown: () => void }) {
 
   return (
     <div
-      className="w-screen h-screen overflow-hidden relative font-sans select-none"
+      className="w-full h-full overflow-hidden relative font-sans select-none"
       style={{ backgroundColor: 'var(--retro-desktop-teal)' }}
       onClick={handleBackgroundClick}
     >
