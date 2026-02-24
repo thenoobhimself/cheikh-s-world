@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Desktop } from './components/Desktop';
 import { BootScreen } from './components/BootScreen';
 import { IntroScreen } from './components/IntroScreen';
@@ -53,6 +54,7 @@ function App() {
           <LogoutScreen onDone={handleLogoutDone} />
         </div>
       )}
+      <SpeedInsights />
     </div>
   );
 }
