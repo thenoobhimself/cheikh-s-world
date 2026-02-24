@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import { Desktop } from './components/Desktop';
 import { BootScreen } from './components/BootScreen';
 import { IntroScreen } from './components/IntroScreen';
@@ -55,6 +56,7 @@ function App() {
         </div>
       )}
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
