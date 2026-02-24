@@ -13,7 +13,7 @@ import ProjectsApp from '../apps/ProjectsApp';
 import CreationsApp from '../apps/CreationsApp';
 import N2SApp from '../apps/N2SApp';
 import GraveyardApp from '../apps/GraveyardApp';
-import DinoGameApp from '../apps/DinoGameApp';
+import GamesApp from '../apps/GamesApp';
 import InstagramApp from '../apps/InstagramApp';
 import ComputerApp from '../apps/ComputerApp';
 import SpotifyApp from '../apps/SpotifyApp';
@@ -24,7 +24,7 @@ const desktopApps: AppType[] = [
   'universe',
   'n2s',
   'graveyard',
-  'dino',
+  'games',
   'instagram',
   'computer',
   'spotify',
@@ -58,7 +58,7 @@ export function Desktop({ onShutdown }: { onShutdown: () => void }) {
       case 'creations': return <CreationsApp />;
       case 'n2s': return <N2SApp />;
       case 'graveyard': return <GraveyardApp />;
-      case 'dino': return <DinoGameApp />;
+      case 'games': return <GamesApp />;
       case 'instagram': return <InstagramApp />;
       case 'computer': return <ComputerApp />;
       case 'spotify': return <SpotifyApp />;

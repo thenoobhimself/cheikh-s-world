@@ -43,12 +43,12 @@ export const appRegistry: Record<AppType, AppConfig> = {
     defaultSize: { width: 650, height: 550 },
     defaultPosition: { x: 160, y: 120 }
   },
-  dino: {
-    id: 'dino',
-    title: 'Catch Square',
+  games: {
+    id: 'games',
+    title: 'Games',
     icon: '/icons/game.png',
-    defaultSize: { width: 500, height: 450 },
-    defaultPosition: { x: 200, y: 150 }
+    defaultSize: { width: 700, height: 500 },
+    defaultPosition: { x: 180, y: 120 }
   },
   instagram: {
     id: 'instagram',

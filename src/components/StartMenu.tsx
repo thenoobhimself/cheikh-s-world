@@ -27,7 +27,7 @@ export function StartMenu({ isOpen, onClose, onShutdown }: StartMenuProps) {
         'creations',
         'n2s',
         'graveyard',
-        'dino',
+        'games',
         'instagram',
         'computer',
         'spotify',

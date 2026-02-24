@@ -5,7 +5,7 @@ export type AppType =
   | 'creations'
   | 'n2s'
   | 'graveyard'
-  | 'dino'
+  | 'games'
   | 'instagram'
   | 'computer'
   | 'spotify'
