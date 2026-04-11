@@ -80,8 +80,8 @@ export default function ChatGPTApp() {
                                 <AlertTriangle size={32} className="text-[#F1A23A] shrink-0" />
                                 <div className="text-[12px] text-black font-semibold leading-tight">
                                     {popup.id % 2 === 0
-                                        ? "Unauthorized access to AI models detected."
-                                        : "Are you sure you want to find ChatGPT?"}
+                                        ? "Mkabech lkhou?"
+                                        : "Bras omek halel chat f cv?"}
                                 </div>
                             </div>
 

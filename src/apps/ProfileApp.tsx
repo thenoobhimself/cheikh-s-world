@@ -50,8 +50,8 @@ export default function ProfileApp() {
                                 <div className="flex-1 order-2 md:order-1">
                                     <h2 className="text-2xl md:text-3xl font-black uppercase leading-none mb-3">CHEIKH<br />WORLD</h2>
                                     <div className="space-y-2 text-xs font-bold flex flex-col items-center md:items-start">
-                                        <div className="flex items-center gap-2"><Phone size={12} /> (555)-012-3456</div>
-                                        <div className="flex items-center gap-2"><Mail size={12} /> cheikh@world.dev</div>
+                                        <div className="flex items-center gap-2"><Phone size={12} /> +216 kalamni ey</div>
+                                        <div className="flex items-center gap-2"><Mail size={12} /> adamcheikhrouhou300@gmail.com</div>
                                         <div className="flex items-center gap-2"><MapPin size={12} /> Creative Universe</div>
                                     </div>
 
@@ -102,14 +102,9 @@ export default function ProfileApp() {
                                 <div className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-1 rounded border-2 border-[#003366]">
                                     <Instagram size={16} />
                                 </div>
-                                <span>@cheikh_world</span>
+                                <span>@adamcheikhrouhou</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-black text-white p-1 rounded border-2 border-[#003366]">
-                                    <span className="font-bold text-xs px-[2px]">Be</span>
-                                </div>
-                                <span>cheikh-dev</span>
-                            </div>
+                            
                         </div>
 
                         {/* Languages */}
